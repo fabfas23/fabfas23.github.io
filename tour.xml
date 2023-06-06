@@ -1,0 +1,507 @@
+﻿<krpano version="1.21" title="Virtual Tour">
+
+	<include url="skin/vtourskin.xml" />
+	<include url="%VIEWER%/plugins/showtext.xml" />
+
+	<!-- customize skin settings: maps, gyro, webvr, thumbnails, tooltips, layout, design, ... -->
+	<skin_settings maps="false"
+	               maps_type="google"
+	               maps_bing_api_key=""
+	               maps_google_api_key=""
+	               maps_zoombuttons="false"
+	               maps_loadonfirstuse="true"
+	               gyro="true"
+	               gyro_keeplookingdirection="false"
+	               webvr="true"
+	               webvr_keeplookingdirection="true"
+	               webvr_prev_next_hotspots="true"
+	               autotour="false"
+	               littleplanetintro="false"
+	               followmousecontrol="true"
+	               title="true"
+	               thumbs="true"
+	               thumbs_width="120" thumbs_height="80" thumbs_padding="10" thumbs_crop="0|40|240|160"
+	               thumbs_opened="false"
+	               thumbs_text="false"
+	               thumbs_dragging="true"
+	               thumbs_onhoverscrolling="false"
+	               thumbs_scrollbuttons="false"
+	               thumbs_scrollindicator="false"
+	               thumbs_loop="false"
+	               tooltips_buttons="false"
+	               tooltips_thumbs="false"
+	               tooltips_hotspots="true"
+	               tooltips_mapspots="false"
+	               deeplinking="false"
+	               loadscene_flags="MERGE"
+	               loadscene_blend="OPENBLEND(0.5, 0.0, 0.75, 0.05, linear)"
+	               loadscene_blend_prev="SLIDEBLEND(0.5, 180, 0.75, linear)"
+	               loadscene_blend_next="SLIDEBLEND(0.5,   0, 0.75, linear)"
+	               loadingtext=""
+	               layout_width="100%"
+	               layout_maxwidth="814"
+	               controlbar_width="-24"
+	               controlbar_height="40"
+	               controlbar_offset="20"
+	               controlbar_offset_closed="-40"
+	               controlbar_overlap.no-fractionalscaling="10"
+	               controlbar_overlap.fractionalscaling="0"
+	               design_skin_images="vtourskin.png"
+	               design_bgcolor="0x2D3E50"
+	               design_bgalpha="0.8"
+	               design_bgborder="0"
+	               design_bgroundedge="1"
+	               design_bgshadow="0 4 10 0x000000 0.3"
+	               design_thumbborder_bgborder="3 0xFFFFFF 1.0"
+	               design_thumbborder_padding="2"
+	               design_thumbborder_bgroundedge="0"
+	               design_text_css="color:#FFFFFF; font-family:Arial;"
+	               design_text_shadow="1"
+	               />
+
+	<!--
+	    For an alternative skin design either change the <skin_settings> values 
+	    from above or optionally include one of the predefined designs from below.
+	-->
+	<!-- <include url="skin/vtourskin_design_flat_light.xml"  /> -->
+	<!-- <include url="skin/vtourskin_design_glass.xml"       /> -->
+	 <include url="skin/vtourskin_design_ultra_light.xml" /> 
+	<!-- <include url="skin/vtourskin_design_117.xml"         /> -->
+	<!-- <include url="skin/vtourskin_design_117round.xml"    /> -->
+	<!-- <include url="skin/vtourskin_design_black.xml"       /> -->
+				
+	
+	<textstyle name="STYLE10"
+	           font="Arial" fontsize="24" bold="false"
+	           width="100%" height="100%" vcenter="true"
+	           border="false" background="true" backgroundcolor="0x000000" backgroundalpha="0.75"
+	           textcolor="0xFFFFFF"
+	           origin="center" edge="center" textalign="center" xoffset="0" yoffset="0"
+	           fadeintime="0.25" fadetime="0.25"
+			   noclip="true"
+			   padding="150"
+	           />
+			   
+    <textstyle name="STYLE10_mobile"
+	           font="Arial" fontsize="24" bold="false"
+	           width="100%" height="100%" vcenter="true"
+	           border="false" background="true" backgroundcolor="0x000000" backgroundalpha="0.75"
+	           textcolor="0xFFFFFF"
+	           origin="center" edge="center" textalign="center" xoffset="0" yoffset="0"
+	           fadeintime="0.25" showtime="5" fadetime="0.5"
+			   noclip="true"
+			   padding="10"
+	           />   	
+
+	<scene name="scene_Panoramico" title="Panoramico" onstart="stopsound(bgsnd)" thumburl="panos/Panoramico.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="-19.711" vlookat="40.105" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Panoramico.tiles/preview.jpg" /> 
+
+		<image>
+			<sphere url="panos/Panoramico.tiles/l%l/%v/l%l_%v_%h.jpg" multires="512,2048x1024" />
+		</image>
+
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-57.918" atv="33.019" linkedscene="scene_barca" linkedscene_lookat="0.0,0.0,120.0" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-16.641" atv="33.055" linkedscene="scene_pilone_1" linkedscene_lookat="0.0,0.0,120.0" />
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="-4.592" atv="13.981" linkedscene="scene_colonnato_001" linkedscene_hoffset="0.0" use3dtransition="true" />	
+
+    <layer name="Menu" url="skin/vtourskin_menus.png" align="lefttop" x="20" y="20" alpha="0.25" scale="0.15" onover="tween(alpha,1);" onout="tween(alpha,0.25);" linkedscene="scene_Panoramico" keep="true"
+	       
+	       onclick="skin_menu_click;" 
+	           />  
+
+	</scene>
+
+	<scene name="scene_Barca" title="Barca" onstart="" thumburl="panos/Barca.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Barca.tiles/preview.jpg" />
+
+		<image>
+			<sphere url="panos/Barca.tiles/l%l/%v/l%l_%v_%h.jpg" multires="512,2048x1024" />
+		</image>
+
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="1.007" atv="-1.161" linkedscene="scene_pilone_1" linkedscene_lookat="3.13,-7.71,120.0" />
+
+
+
+	</scene>
+
+	<scene name="scene_Pilone_1" title="Pilone 1" onstart="" thumburl="panos/Pilone_1.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Pilone_1.tiles/preview.jpg" />
+
+		<image>
+			<sphere url="panos/Pilone_1.tiles/l%l/%v/l%l_%v_%h.jpg" multires="512,2048x1024" />
+		</image>
+
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-128.398" atv="-2.949" linkedscene="scene_barca" linkedscene_lookat="-144.36,1.24,120.0" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="1.251" atv="4.174" linkedscene="scene_pilone_2" linkedscene_lookat="3.34,-4.17,120.0" />
+
+	</scene>
+
+	<scene name="scene_Pilone_2" title="Pilone 2" onstart="" thumburl="panos/Pilone_2.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Pilone_2.tiles/preview.jpg" />
+
+		<image>
+			<sphere url="panos/Pilone_2.tiles/l%l/%v/l%l_%v_%h.jpg" multires="512,2048x1024" />
+		</image>
+
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-0.098" atv="6.013" linkedscene="scene_pilone_3" linkedscene_lookat="2.92,-3.13,120.0" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-176.376" atv="-3.019" linkedscene="scene_pilone_1" linkedscene_lookat="-169.94,5.93,120.0" />
+
+	</scene>
+
+	<scene name="scene_Pilone_3" title="Pilone 3" onstart="" thumburl="panos/Pilone_3.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Pilone_3.tiles/preview.jpg" />
+
+		<image>
+			<sphere url="panos/Pilone_3.tiles/l%l/%v/l%l_%v_%h.jpg" multires="512,2048x1024" />
+		</image>
+
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-176.771" atv="-2.277" linkedscene="scene_pilone_2" linkedscene_lookat="-176.95,6.25,120.0" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="0.066" atv="5.241" linkedscene="scene_entrata_tempio" linkedscene_lookat="2.29,2.29,120.0" />
+
+	</scene>
+	
+	<scene name="scene_Entrata_tempio" title="Entrata tempio" onstart="" thumburl="panos/Entrata_tempio.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Entrata_tempio.tiles/preview.jpg" />
+
+		<image>
+			<sphere url="panos/Entrata_tempio.tiles/l%l/%v/l%l_%v_%h.jpg" multires="512,2048x1024" />
+		</image>
+
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-177.459" atv="-2.975" linkedscene="scene_pilone_3" linkedscene_lookat="-173.74,8.23,120.0" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="1.449" atv="8.045" linkedscene="scene_colonnato_002" linkedscene_lookat="-149.35,7.48,120.0" />
+
+	</scene>
+	
+	<scene name="scene_Colonnato_001" title="Colonnato" onstart="" thumburl="panos/Colonnato_001.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Colonnato_001.tiles/preview.jpg" />
+
+		<image>
+			<sphere url="panos/Colonnato_001.tiles/l%l/%v/l%l_%v_%h.jpg" multires="512,2048x1024" />
+		</image>
+
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="26.595" atv="9.139" linkedscene="scene_colonnato_002" linkedscene_lookat="27.1,-3.75,120.0" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-62.610" atv="8.060" linkedscene="scene_colonnato_005" linkedscene_lookat="-61.25,4.87,120.0" />
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="-150.840" atv="6.959" linkedscene="scene_colonnato_003" linkedscene_lookat="-153.55,-0.0,120.0" />
+
+	</scene>
+
+	<scene name="scene_Colonnato_002" title="Colonnato" onstart="" thumburl="panos/Colonnato_002.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="-151.940" vlookat="3.570" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Colonnato_002.tiles/preview.jpg" />
+
+		<image>
+			<sphere url="panos/Colonnato_002.tiles/l%l/%v/l%l_%v_%h.jpg" multires="512,2048x1024" />
+		</image>
+
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="28.260" atv="3.895" linkedscene="scene_entrata_tempio" linkedscene_lookat="-175.18,4.72,120.0" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-151.534" atv="10.422" linkedscene="scene_colonnato_001" linkedscene_lookat="-151.87,4.21,120.0" />
+
+	</scene>
+
+	<scene name="scene_Colonnato_003" title="Colonnato" onstart="" thumburl="panos/Colonnato_003.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Colonnato_003.tiles/preview.jpg" />
+
+		<image>
+			<sphere url="panos/Colonnato_003.tiles/l%l/%v/l%l_%v_%h.jpg" multires="512,2048x1024" />
+		</image>
+
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="27.296" atv="8.295" linkedscene="scene_colonnato_001" linkedscene_lookat="28.4,6.87,120.0" />
+
+	</scene>
+
+	<scene name="scene_Colonnato_004" title="Colonnato" onstart="" thumburl="panos/Colonnato_004.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Colonnato_004.tiles/preview.jpg" />
+
+		<image>
+			<sphere url="panos/Colonnato_004.tiles/l%l/%v/l%l_%v_%h.jpg" multires="512,2048x1024" />
+		</image>
+
+	</scene>
+
+	<scene name="scene_Colonnato_005" title="Colonnato" onstart="" thumburl="panos/Colonnato_005.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Colonnato_005.tiles/preview.jpg" />
+
+		<image>
+			<sphere url="panos/Colonnato_005.tiles/l%l/%v/l%l_%v_%h.jpg" multires="512,2048x1024" />
+		</image>
+
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="115.462" atv="5.443" linkedscene="scene_colonnato_001" linkedscene_lookat="119.1,5.47,120.0" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-64.801" atv="0.382" linkedscene="scene_colonnato_011" linkedscene_lookat="-63.09,0.64,120.0" />
+
+	</scene>
+
+	<scene name="scene_Colonnato_006" title="Colonnato" onstart="" thumburl="panos/Colonnato_006.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Colonnato_006.tiles/preview.jpg" />
+
+		<image>
+			<sphere url="panos/Colonnato_006.tiles/l%l/%v/l%l_%v_%h.jpg" multires="512,2048x1024" />
+		</image>
+
+	</scene>
+
+	<scene name="scene_Colonnato_007" title="Colonnato" onstart="" thumburl="panos/Colonnato_007.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Colonnato_007.tiles/preview.jpg" />
+
+		<image>
+			<sphere url="panos/Colonnato_007.tiles/l%l/%v/l%l_%v_%h.jpg" multires="512,2048x1024" />
+		</image>
+
+	</scene>
+
+	<scene name="scene_Colonnato_008" title="Colonnato" onstart="" thumburl="panos/Colonnato_008.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Colonnato_008.tiles/preview.jpg" />
+
+		<image>
+			<sphere url="panos/Colonnato_008.tiles/l%l/%v/l%l_%v_%h.jpg" multires="512,2048x1024" />
+		</image>
+
+	</scene>
+
+	<scene name="scene_Colonnato_009" title="Colonnato" onstart="" thumburl="panos/Colonnato_009.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Colonnato_009.tiles/preview.jpg" />
+
+		<image>
+			<sphere url="panos/Colonnato_009.tiles/l%l/%v/l%l_%v_%h.jpg" multires="512,2048x1024" />
+		</image>
+
+	</scene>
+
+	<scene name="scene_Colonnato_010" title="Colonnato" onstart="" thumburl="panos/Colonnato_010.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Colonnato_010.tiles/preview.jpg" />
+
+		<image>
+			<sphere url="panos/Colonnato_010.tiles/l%l/%v/l%l_%v_%h.jpg" multires="512,2048x1024" />
+		</image>
+
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="24.171" atv="6.358" linkedscene="scene_colonnato_011" linkedscene_lookat="28.4,1.79,120.0" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-56.811" atv="8.877" linkedscene="scene_colonnato_013" linkedscene_lookat="-44.83,3.59,120.0" />
+
+	</scene>
+
+	<scene name="scene_Colonnato_011" title="Colonnato" onstart="" thumburl="panos/Colonnato_011.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Colonnato_011.tiles/preview.jpg" />
+
+		<image>
+			<sphere url="panos/Colonnato_011.tiles/l%l/%v/l%l_%v_%h.jpg" multires="512,2048x1024" />
+		</image>
+
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="118.451" atv="2.002" linkedscene="scene_colonnato_001" linkedscene_lookat="-239.84,8.9,120.0" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-152.825" atv="9.995" linkedscene="scene_colonnato_010" linkedscene_lookat="-154.96,-2.99,120.0" />
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="28.126" atv="6.789" linkedscene="scene_colonnato_012" linkedscene_lookat="27.5,-1.79,120.0" />
+
+	</scene>
+
+	<scene name="scene_Colonnato_012" title="Colonnato" onstart="" thumburl="panos/Colonnato_012.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Colonnato_012.tiles/preview.jpg" />
+
+		<image>
+			<sphere url="panos/Colonnato_012.tiles/l%l/%v/l%l_%v_%h.jpg" multires="512,2048x1024" />
+		</image>
+
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-150.216" atv="5.117" linkedscene="scene_colonnato_011" linkedscene_lookat="-151.19,2.27,120.0" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="144.619" atv="2.925" linkedscene="scene_colonnato_001" linkedscene_lookat="-211.49,4.02,120.0" />
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="-66.370" atv="7.840" linkedscene="scene_colonnato_015" linkedscene_lookat="-62.87,1.96,120.0" />
+
+	</scene>
+
+	<scene name="scene_Colonnato_013" title="Colonnato" onstart="" thumburl="panos/Colonnato_013.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Colonnato_013.tiles/preview.jpg" />
+
+		<image>
+			<sphere url="panos/Colonnato_013.tiles/l%l/%v/l%l_%v_%h.jpg" multires="512,2048x1024" />
+		</image>
+
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="25.827" atv="12.086" linkedscene="scene_colonnato_014" linkedscene_lookat="31.38,2.09,120.0" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="107.796" atv="6.054" linkedscene="scene_colonnato_010" linkedscene_lookat="122.5,5.84,120.0" />
+
+	<hotspot name="spot3" style="skin_infostyle" ath="-23.337" atv="-2.930" onhover="showtext([b]LA DEA SEKHMET[/b][br][br][font size='15' style='font-size:15px;']Sekhmet (anche Sachmis, Sakhmet, Sekhet o Sakhet) è nella religione dell'antico egitto la divinità della guerra, delle epidemie e delle guarigioni. Veniva rappresentata come leonessa o donna dalla testa di leonessa, la belva più feroce dell'immaginario egizio.[/font], STYLE10);" ondown.touch="showtext([b]LA DEA SEKHMET[/b][br][br][font size='15' style='font-size:15px;']Sekhmet (anche Sachmis, Sakhmet, Sekhet o Sakhet) è nella religione dell'antico egitto la divinità della guerra, delle epidemie e delle guarigioni. Veniva rappresentata come leonessa o donna dalla testa di leonessa, la belva più feroce dell'immaginario egizio.[/font], STYLE10_mobile);">
+		<point ath=" -6.5768" atv="-17.9930" />
+		<point ath=" -5.5524" atv=" 22.3498" />
+		<point ath=" 13.9464" atv=" 22.4313" />
+		<point ath=" 14.2668" atv=" 14.6862" />
+		<point ath="  2.1590" atv=" 13.6767" />
+		<point ath="  2.2743" atv="  5.5185" />
+		<point ath="  9.8160" atv="  5.4976" />
+		<point ath=" 11.4417" atv=" -1.8950" />
+		<point ath="  3.3895" atv=" -1.1436" />
+		<point ath="  3.2768" atv=" -9.6135" />
+		<point ath=" 18.8661" atv=" -8.8850" />
+		<point ath=" 17.8879" atv="-20.7037" />
+	</hotspot>
+
+	</scene>
+
+	<scene name="scene_Colonnato_014" title="Colonnato" onstart="" thumburl="panos/Colonnato_014.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Colonnato_014.tiles/preview.jpg" />
+
+		<image>
+			<sphere url="panos/Colonnato_014.tiles/l%l/%v/l%l_%v_%h.jpg" multires="512,2048x1024" />
+		</image>
+
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="29.623" atv="5.603" linkedscene="scene_colonnato_015" linkedscene_lookat="32.28,2.39,120.0" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-153.958" atv="6.075" linkedscene="scene_colonnato_013" linkedscene_lookat="-154.82,2.49,120.0" />
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="107.655" atv="6.038" linkedscene="scene_colonnato_011" linkedscene_lookat="122.67,8.2,120.0" />
+
+	<hotspot name="spot4" style="skin_infostyle" ath="-65.004" atv="1.544" onhover="showtext([b]LA DEA SEKHMET[/b][br][br][font size='15' style='font-size:15px;']Sekhmet (anche Sachmis, Sakhmet, Sekhet o Sakhet) è nella religione dell'antico egitto la divinità della guerra, delle epidemie e delle guarigioni. Veniva rappresentata come leonessa o donna dalla testa di leonessa, la belva più feroce dell'immaginario egizio.[/font], STYLE10);" ondown.touch="showtext([b]LA DEA SEKHMET[/b][br][br][font size='15' style='font-size:15px;']Sekhmet (anche Sachmis, Sakhmet, Sekhet o Sakhet) è nella religione dell'antico egitto la divinità della guerra, delle epidemie e delle guarigioni. Veniva rappresentata come leonessa o donna dalla testa di leonessa, la belva più feroce dell'immaginario egizio.[/font], STYLE10_mobile);">
+		<point ath=" -6.5768" atv="-17.9930" />
+		<point ath=" -5.5524" atv=" 22.3498" />
+		<point ath=" 13.9464" atv=" 22.4313" />
+		<point ath=" 14.2668" atv=" 14.6862" />
+		<point ath="  2.1590" atv=" 13.6767" />
+		<point ath="  2.2743" atv="  5.5185" />
+		<point ath="  9.8160" atv="  5.4976" />
+		<point ath=" 11.4417" atv=" -1.8950" />
+		<point ath="  3.3895" atv=" -1.1436" />
+		<point ath="  3.2768" atv=" -9.6135" />
+		<point ath=" 18.8661" atv=" -8.8850" />
+		<point ath=" 17.8879" atv="-20.7037" />
+	</hotspot>
+
+	</scene>
+
+	<scene name="scene_Colonnato_015" title="Colonnato" onstart="" thumburl="panos/Colonnato_015.tiles/thumb.jpg" lat="" lng="" alt="" heading="" soundurl="%CURRENTXML%/skin/Sounds/Salmosong.mp3">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Colonnato_015.tiles/preview.jpg" />
+
+		<image>
+			<sphere url="panos/Colonnato_015.tiles/l%l/%v/l%l_%v_%h.jpg" multires="512,2048x1024" />
+		</image>
+		
+		<events name="currentpano"
+	        onnewpano="playsound(bgsnd, '%CURRENTXML%/skin/Sounds/Salmosong.mp3', 0);"
+	        onremovepano=""
+	        />
+		
+<!-- a button to pause/play the sound -->
+	<layer name="snd" url="skin/soundonoff.png" align="lefttop" x="97" y="17" alpha="0.25" scale="0.7" onover="tween(alpha,1);" onout="tween(alpha,0.25);"
+	       crop="0|0|50|50"
+		   keep="true"
+		   
+	       onclick="pausesoundtoggle(bgsnd); switch(crop, 0|0|50|50, 0|50|50|50);"
+	       />		
+
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-152.329" atv="6.411" linkedscene="scene_colonnato_014" linkedscene_lookat="-159.22,0.19,120.0" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="117.036" atv="6.007" linkedscene="scene_colonnato_012" linkedscene_lookat="112.96,5.68,120.0" />
+
+	<hotspot name="spot3" style="skin_infostyle" ath="-82.252" atv="-4.917" onhover="showtext([b]LA DEA SEKHMET[/b][br][br][font size='15' style='font-size:15px;']Sekhmet (anche Sachmis, Sakhmet, Sekhet o Sakhet) è nella religione dell'antico egitto la divinità della guerra, delle epidemie e delle guarigioni. Veniva rappresentata come leonessa o donna dalla testa di leonessa, la belva più feroce dell'immaginario egizio.[/font], STYLE10);" ondown.touch="showtext([b]LA DEA SEKHMET[/b][br][br][font size='15' style='font-size:15px;']Sekhmet (anche Sachmis, Sakhmet, Sekhet o Sakhet) è nella religione dell'antico egitto la divinità della guerra, delle epidemie e delle guarigioni. Veniva rappresentata come leonessa o donna dalla testa di leonessa, la belva più feroce dell'immaginario egizio.[/font], STYLE10_mobile);">
+		<point ath=" -6.5768" atv="-17.9930" />
+		<point ath=" -5.5524" atv=" 22.3498" />
+		<point ath=" 13.9464" atv=" 22.4313" />
+		<point ath=" 14.2668" atv=" 14.6862" />
+		<point ath="  2.1590" atv=" 13.6767" />
+		<point ath="  2.2743" atv="  5.5185" />
+		<point ath="  9.8160" atv="  5.4976" />
+		<point ath=" 11.4417" atv=" -1.8950" />
+		<point ath="  3.3895" atv=" -1.1436" />
+		<point ath="  3.2768" atv=" -9.6135" />
+		<point ath=" 18.8661" atv=" -8.8850" />
+		<point ath=" 17.8879" atv="-20.7037" />
+	</hotspot>
+
+	</scene>
+	
+
+</krpano>
